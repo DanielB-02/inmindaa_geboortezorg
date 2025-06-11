@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>dim_locatie</name>
+    <name>spoon_hittestress_2022</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,23 +427,23 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2025/05/20 15:38:01.146</created_date>
+    <created_date>2025/06/11 11:22:45.494</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/05/20 15:38:01.146</modified_date>
-    <key_for_session_key/>
+    <modified_date>2025/06/11 11:22:45.494</modified_date>
+    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>sqlite_database</name>
-    <server/>
-    <type>SQLITE</type>
+    <name>inmindaa_postgres</name>
+    <server>95.217.3.61</server>
+    <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>C:\Users\jesse\PycharmProjects\inmindaa_geboortezorg\sqlite_database.db</database>
-    <port/>
-    <username/>
-    <password>Encrypted </password>
+    <database>minor_s1144085</database>
+    <port>5432</port>
+    <username>s1144085</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce1087c7fe8f</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -459,6 +459,10 @@
       <attribute>
         <code>IS_CLUSTERED</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>5432</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -516,12 +520,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name>C:\Users\jesse\PycharmProjects\inmindaa_geboortezorg\data\Locaties.xlsx</name>
+      <name>C:\Users\Daniel\PycharmProjects\inmindaa_geboortezorg\bewerkte_data\hittestress_2022.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -529,31 +528,7 @@
     </file>
     <fields>
       <field>
-        <name>GemCode</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>GemNaam</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>PC4</name>
+        <name>_count</name>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -565,8 +540,68 @@
         <group/>
       </field>
       <field>
-        <name>Lokaliseringen van gemeenten/GGD-regio's/Code (code)</name>
-        <type>String</type>
+        <name>_sum</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>_mean</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>PET_gem</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>RIVMClass</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>pc4_code</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>jaartal</name>
+        <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -612,8 +647,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>416</xloc>
-      <yloc>288</yloc>
+      <xloc>352</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -628,9 +663,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>sqlite_database</connection>
-    <schema/>
-    <table>locatie_test_tabel</table>
+    <connection>inmindaa_postgres</connection>
+    <schema>"INMINDAA_project"</schema>
+    <table>dim_hittestress</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -647,20 +682,32 @@
     <return_field/>
     <fields>
       <field>
-        <column_name>GemCode</column_name>
-        <stream_name>GemCode</stream_name>
+        <column_name>_count</column_name>
+        <stream_name>_count</stream_name>
       </field>
       <field>
-        <column_name>GemNaam</column_name>
-        <stream_name>GemNaam</stream_name>
+        <column_name>_sum</column_name>
+        <stream_name>_sum</stream_name>
       </field>
       <field>
-        <column_name>PC4</column_name>
-        <stream_name>PC4</stream_name>
+        <column_name>_mean</column_name>
+        <stream_name>_mean</stream_name>
       </field>
       <field>
-        <column_name>Lokaliseringen van gemeenten/GGD-regio's/Code (code)</column_name>
-        <stream_name>Lokaliseringen van gemeenten/GGD-regio's/Code (code)</stream_name>
+        <column_name>pet_gem</column_name>
+        <stream_name>PET_gem</stream_name>
+      </field>
+      <field>
+        <column_name>rivm_class</column_name>
+        <stream_name>RIVMClass</stream_name>
+      </field>
+      <field>
+        <column_name>pc4_code</column_name>
+        <stream_name>pc4_code</stream_name>
+      </field>
+      <field>
+        <column_name>jaartal</column_name>
+        <stream_name>jaartal</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -672,8 +719,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>288</yloc>
+      <xloc>496</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

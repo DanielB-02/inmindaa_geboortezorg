@@ -51,13 +51,11 @@ def turn_df_into_excel(df, file_name):
 
 
 removed_columns_df = remove_columns(df,
-                                 ['fid', 'fid_1', 'buurtcode', 'buurtnaam', 'wijkcode',
-                'gemeenteco', 'gemeentena', 'jrstatcode', 'jaar'])
+                                    ['fid', 'fid_1', 'buurtcode', 'buurtnaam', 'wijkcode',
+                                     'gemeenteco', 'gemeentena', 'jrstatcode', 'jaar'])
 
 renamed_columns_df = rename_columns(removed_columns_df, {'PC4': 'pc4_code'})
 
-add_columns_df = add_column(renamed_columns_df, 'jaar', 2022)
+add_columns_df = add_column(renamed_columns_df, 'jaartal', 2022)
 
 turn_df_into_excel(add_columns_df, 'hittestress_2022.xlsx')
-
-
