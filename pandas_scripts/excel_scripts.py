@@ -33,7 +33,7 @@ def turn_df_into_excel(df, file_name):
 def delete_rows_on_substrings_excel(file_path, column_name, substrings_to_delete):
     """
         Example of implementation:
-            file_path = 'zorgaanbod_2022.xlsx'
+            file_path = 'old_zorgaanbod_2022.xlsx'
             column_name = 'Codering_3'
             substrings_to_delete = ['WK', 'BU']
         delete_rows_on_substrings_excel(file_path, column_name, substrings_to_delete)
