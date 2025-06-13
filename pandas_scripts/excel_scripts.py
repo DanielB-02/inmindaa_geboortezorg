@@ -37,22 +37,21 @@ def drop_duplicate_rows(dataframe, columns):
     return dataframe.drop_duplicates(subset=columns, keep="first")
 
 
-def delete_rows_on_substrings_excel(file_path, column_name, substrings_to_delete):
+def delete_rows_on_substrings_excel(dataframe, column_name, substrings_to_delete):
     """
         Example of implementation:
-            file_path = 'old_zorgaanbod_2022.xlsx'
+            dataframe = df
             column_name = 'Codering_3'
             substrings_to_delete = ['WK', 'BU']
-        delete_rows_on_substrings_excel(file_path, column_name, substrings_to_delete)
+        delete_rows_on_substrings_excel(dataframe, column_name, substrings_to_delete)
     """
-    df = pd.read_excel(file_path)
-    rows_to_delete = pd.Series([False] * len(df), index=df.index)
+    rows_to_delete = pd.Series([False] * len(dataframe), index=dataframe.index)
     for sub in substrings_to_delete:
-        rows_with_substring = df[column_name].astype(str).str.contains(sub, na=False, case=False)
+        rows_with_substring = dataframe[column_name].astype(str).str.contains(sub, na=False, case=False)
         rows_to_delete = rows_to_delete | rows_with_substring
-    df_updated = df[~rows_to_delete]
-    df_updated.to_excel(file_path, index=False)
-    return True
+    df_updated = dataframe[~rows_to_delete]
+
+    return df_updated
 
 
 def merge_excel_files(main_excel_file, second_excel_file, merged_excel_file, main_merge_column, second_merge_column):
@@ -68,7 +67,7 @@ def merge_excel_files(main_excel_file, second_excel_file, merged_excel_file, mai
 
     df_merged = pd.merge(df_main, df2, left_on=main_merge_column, right_on=second_merge_column, how='left')
 
-    df_merged.to_excel(merged_excel_file, index=False)
+    turn_df_into_excel(df_merged, merged_excel_file)
 
 
 def add_pc4_to_excel(dataset, locatie_dataset, locatie_code_column, locatie_dataset_code_column, file_name):
