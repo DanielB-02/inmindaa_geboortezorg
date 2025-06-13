@@ -34,7 +34,7 @@ def drop_duplicate_rows(dataframe, columns):
     """
     Drop duplicate rows, uses the given list of columns to determine if there are duplicate rows.
     """
-    return dataframe.drop_duplicates(subset=columns, inplace=True)
+    return dataframe.drop_duplicates(subset=columns, keep="first")
 
 
 def delete_rows_on_substrings_excel(file_path, column_name, substrings_to_delete):
