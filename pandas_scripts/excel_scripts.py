@@ -28,3 +28,21 @@ def turn_df_into_excel(df, file_name):
     Save the DataFrame to an Excel file in the 'bewerkte_data' folder.
     """
     df.to_excel(f"../bewerkte_data/{file_name}", index=False)
+
+
+def delete_rows_on_substrings_excel(file_path, column_name, substrings_to_delete):
+    """
+        Example of implementation:
+            file_path = 'zorgaanbod_2022.xlsx'
+            column_name = 'Codering_3'
+            substrings_to_delete = ['WK', 'BU']
+        delete_rows_on_substrings_excel(file_path, column_name, substrings_to_delete)
+    """
+    df = pd.read_excel(file_path)
+    rows_to_delete = pd.Series([False] * len(df), index=df.index)
+    for sub in substrings_to_delete:
+        rows_with_substring = df[column_name].astype(str).str.contains(sub, na=False, case=False)
+        rows_to_delete = rows_to_delete | rows_with_substring
+    df_updated = df[~rows_to_delete]
+    df_updated.to_excel(file_path, index=False)
+    return True
