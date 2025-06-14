@@ -37,6 +37,13 @@ def drop_duplicate_rows(dataframe, columns):
     return dataframe.drop_duplicates(subset=columns, keep="first")
 
 
+def drop_rows_from_column_with_null_values(dataframe, column_name):
+    """
+    Drop rows from the DataFrame where the specified column has null values.
+    """
+    return dataframe.dropna(subset=[column_name])
+
+
 def delete_rows_on_substrings_excel(file_path, column_name, substrings_to_delete):
     """
         Example of implementation:
@@ -71,21 +78,19 @@ def merge_excel_files(main_excel_file, second_excel_file, merged_excel_file, mai
     df_merged.to_excel(merged_excel_file, index=False)
 
 
-def add_pc4_to_excel(dataset, locatie_dataset, locatie_code_column, locatie_dataset_code_column, file_name):
+def add_pc4_to_excel(dataframe, locatie_dataset, locatie_code_column, locatie_dataset_code_column, file_name):
     """
     Add PC4 codes to an Excel file
     This will create new rows based on the combination of the location and PC4 codes
     """
-    df = pd.read_excel(dataset)
 
     ld_frame = pd.read_excel(locatie_dataset)
     ld_frame = ld_frame[[locatie_dataset_code_column, "PC4"]]
 
-    df = pd.merge(df, ld_frame, left_on=[locatie_code_column], right_on=[locatie_dataset_code_column],
+    df = pd.merge(dataframe, ld_frame, left_on=[locatie_code_column], right_on=[locatie_dataset_code_column],
                          how='left')
 
     df.drop(columns=[locatie_dataset_code_column], inplace=True)
     df = df.drop_duplicates()
-    df.to_excel(f"../bewerkte_data/{file_name}", index=False)
 
     return df
