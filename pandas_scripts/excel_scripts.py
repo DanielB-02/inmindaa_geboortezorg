@@ -44,22 +44,21 @@ def drop_rows_from_column_with_null_values(dataframe, column_name):
     return dataframe.dropna(subset=[column_name])
 
 
-def delete_rows_on_substrings_excel(file_path, column_name, substrings_to_delete):
+def delete_rows_on_substrings_excel(dataframe, column_name, substrings_to_delete):
     """
         Example of implementation:
-            file_path = 'old_zorgaanbod_2022.xlsx'
+            file_path = '../data/copy_zorgaanbod_2022.xlsx'
+            df = pd.read_excel(file_path)
             column_name = 'Codering_3'
-            substrings_to_delete = ['WK', 'BU']
+            substrings_to_delete = ['WK', 'BU', 'NL']
         delete_rows_on_substrings_excel(file_path, column_name, substrings_to_delete)
     """
-    df = pd.read_excel(file_path)
-    rows_to_delete = pd.Series([False] * len(df), index=df.index)
+    rows_to_delete = pd.Series([False] * len(dataframe), index=dataframe.index)
     for sub in substrings_to_delete:
-        rows_with_substring = df[column_name].astype(str).str.contains(sub, na=False, case=False)
+        rows_with_substring = dataframe[column_name].astype(str).str.contains(sub, na=False, case=False)
         rows_to_delete = rows_to_delete | rows_with_substring
-    df_updated = df[~rows_to_delete]
-    df_updated.to_excel(file_path, index=False)
-    return True
+    df_updated = dataframe[~rows_to_delete]
+    return df_updated
 
 
 def merge_excel_files(main_excel_file, second_excel_file, merged_excel_file, main_merge_column, second_merge_column):
@@ -78,7 +77,7 @@ def merge_excel_files(main_excel_file, second_excel_file, merged_excel_file, mai
     df_merged.to_excel(merged_excel_file, index=False)
 
 
-def add_pc4_to_excel(dataframe, locatie_dataset, locatie_code_column, locatie_dataset_code_column, file_name):
+def add_pc4_to_excel(dataframe, locatie_dataset, locatie_code_column, locatie_dataset_code_column):
     """
     Add PC4 codes to an Excel file
     This will create new rows based on the combination of the location and PC4 codes
