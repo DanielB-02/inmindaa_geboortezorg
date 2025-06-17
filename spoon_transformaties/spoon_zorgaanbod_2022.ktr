@@ -520,7 +520,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>C:\Users\jbuck\LOCAL_STORAGE\INMINDAA_project\git_clone\bewerkte_data\zorgaanbod_2022.xlsx</name>
+      <name>C:\Users\jbuck\LOCAL_STORAGE\INMINDAA_project\git_clone\bewerkte_data\zorgaanbod_2022_obv_gemcode.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -629,7 +629,7 @@
         <group/>
       </field>
       <field>
-        <name>pc4_code</name>
+        <name>jaartal</name>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -641,7 +641,7 @@
         <group/>
       </field>
       <field>
-        <name>jaartal</name>
+        <name>pc4_code</name>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -755,12 +755,12 @@
         <stream_name>per_1e4</stream_name>
       </field>
       <field>
-        <column_name>pc4_code</column_name>
-        <stream_name>pc4_code</stream_name>
-      </field>
-      <field>
         <column_name>jaartal</column_name>
         <stream_name>jaartal</stream_name>
+      </field>
+      <field>
+        <column_name>pc4_code</column_name>
+        <stream_name>pc4_code</stream_name>
       </field>
     </fields>
     <attributes/>

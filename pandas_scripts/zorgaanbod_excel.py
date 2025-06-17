@@ -46,3 +46,10 @@ column_mapping = {
 df = excel_scripts.rename_columns(df, column_mapping)
 
 excel_scripts.turn_df_into_excel(df, output_filename)
+
+# # file_path = '../bewerkte_data/zorgaanbod_2022_obv_gemcode.xlsx'
+# file_path = '../bewerkte_data/zorgaanbod_2022_obv_buurtcode.xlsx'
+# # file_path = '../bewerkte_data/locatie.xlsx'
+# df = pd.read_excel(file_path)
+#
+# print(df.nunique())
