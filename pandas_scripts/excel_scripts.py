@@ -77,9 +77,9 @@ def merge_excel_files(main_excel_file, second_excel_file, merged_excel_file, mai
     df_merged.to_excel(merged_excel_file, index=False)
 
 
-def add_pc4_to_excel(dataframe, locatie_dataset, locatie_code_column, locatie_dataset_code_column):
+def add_pc4_to_dataframe(dataframe, locatie_dataset, locatie_code_column, locatie_dataset_code_column):
     """
-    Add PC4 codes to an Excel file
+    Add PC4 codes to a dataframe
     This will create new rows based on the combination of the location and PC4 codes
     """
 
