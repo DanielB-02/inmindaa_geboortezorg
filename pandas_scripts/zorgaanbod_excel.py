@@ -21,7 +21,7 @@ location_dataset_code_column = "GemCode"
 # 'BuurtCode'
 target_location_column = "Codering_3"
 
-df = excel_scripts.add_pc4_to_excel(
+df = excel_scripts.add_pc4_to_dataframe(
     df,
     location_set,
     target_location_column,
