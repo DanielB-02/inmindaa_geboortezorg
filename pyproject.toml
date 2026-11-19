@@ -2,11 +2,11 @@
 name = "inmindaa-geboortezorg"
 version = "0.1.0"
 description = "ETL pipeline and regression analysis on regional factors related to pregnancy outcomes in the Netherlands"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 
 [tool.ruff]
 line-length = 120
-target-version = "py310"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B"]
