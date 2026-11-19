@@ -1,15 +1,16 @@
+"""Add latitude/longitude per PC4 code to the cleaned poverty (armoede) dataset."""
+
 import pandas as pd
 
-# 1. Bestanden inlezen
-file_path = '../bewerkte_data/armoede_goed_2022.xlsx'
-kwb_df = pd.read_excel(file_path)
-loc_df = pd.read_excel("../bewerkte_data/locatie_coords.xlsx")
+from excel_scripts import PROCESSED_DIR
 
-# 4. Merge op pc4_codeá
+kwb_df = pd.read_excel(PROCESSED_DIR / "armoede_goed_2022.xlsx")
+loc_df = pd.read_excel(PROCESSED_DIR / "locatie_coords.xlsx")
+
 merged_df = kwb_df.merge(
-    loc_df[['pc4_code', 'latitude', 'longitude']],
-    on='pc4_code',
-    how='left'  # behoud alle rijen uit de kwb-tabel
+    loc_df[["pc4_code", "latitude", "longitude"]],
+    on="pc4_code",
+    how="left",  # keep all rows from the KWB table
 )
 
-merged_df.to_excel("../bewerkte_data/kwb_2022_met_lat_lon_goed.xlsx", index=False)
+merged_df.to_excel(PROCESSED_DIR / "kwb_2022_met_lat_lon_goed.xlsx", index=False)
