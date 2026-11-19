@@ -104,7 +104,7 @@ def add_pc4_to_dataframe(
         dataframe, ld_frame, left_on=[locatie_code_column], right_on=[locatie_dataset_code_column], how="left"
     )
 
-    df.drop(columns=[locatie_dataset_code_column], inplace=True)
+    df = df.drop(columns=[locatie_dataset_code_column])
     df = df.drop_duplicates()
 
     return df
