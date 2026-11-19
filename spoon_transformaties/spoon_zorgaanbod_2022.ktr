@@ -437,13 +437,13 @@
   </notepads>
   <connection>
     <name>PostgreSQL</name>
-    <server>95.217.3.61</server>
+    <server>${DB_HOST}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>minor_s1144085</database>
+    <database>${DB_NAME}</database>
     <port>5432</port>
-    <username>s1144085</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce1087c7fe8f</password>
+    <username>${DB_USER}</username>
+    <password>${DB_PASSWORD}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
